@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import { Icon } from 'native-base';
 import STRING from './const_string_zh_CN';
+import { Image } from 'react-native';
 
 //pages
 import TabMessage from './MessageStackNavigator';
@@ -71,7 +72,11 @@ const MOOCTabNavigator = TabNavigator({
       navigationOptions: {
         tabBarLabel: STRING.message_page_name,
         tabBarIcon: ({ tintColor }) => (
-            <Icon name='chatbubbles' />
+            // <Icon name='chatbubbles' />
+            <Image
+              source={require('../images/ic_weixin_normal.png')}
+              style={{width: 40,height: 40}}
+            />
         ),
       }
     },
@@ -80,7 +85,11 @@ const MOOCTabNavigator = TabNavigator({
       navigationOptions: {
         tabBarLabel: STRING.class_page_name,
         tabBarIcon: ({ tintColor }) => (
-            <Icon name='person' />
+            // <Icon name='person' />
+            <Image
+              source={require('../images/ic_contacts_normal.png')}
+              style={{width: 40,height: 40}}
+            />
         ),
       }
     },
@@ -89,7 +98,11 @@ const MOOCTabNavigator = TabNavigator({
       navigationOptions: {
         tabBarLabel: STRING.discovery_page_name,
         tabBarIcon: ({ tintColor }) => (
-            <Icon name='bookmark' />
+            // <Icon name='bookmark' />
+            <Image
+              source={require('../images/ic_find_normal.png')}
+              style={{width: 40,height: 40}}
+            />
         ),
       }
     },
@@ -98,7 +111,11 @@ const MOOCTabNavigator = TabNavigator({
       navigationOptions: {
         tabBarLabel: STRING.me_page_name,
         tabBarIcon: ({ tintColor }) => (
-            <Icon name='contact' />
+            // <Icon name='contact' />
+            <Image
+              source={require('../images/ic_me_normal.png')}
+              style={{width: 40,height: 40}}
+            />
         ),
       }
     },
