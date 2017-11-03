@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation';
 import STRING from './const_string_zh_CN';
-import MessagePage from './three';
+import MessagePage from './MessagePage';
 
 
 const CourseMainOptions = {

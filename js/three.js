@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
+import ListItem from './ListItem.js';
+import ListItemDivider from './ListItemDivider.js';
+import Global from './Global';
 import {
-  AppRegistry,
+  Dimensions,
+  Image,
+  PixelRatio,
+  ScrollView,
   StyleSheet,
-  Button,
-  Text,
   View
 } from 'react-native';
-// import {StackNavigator} from 'react-navigation'
-// import ChatScreen from './ChatScreen'
-export default class thre extends Component {
+
+const {width} = Dimensions.get('window');
+
+export default class three extends Component {
   render() {
-   
+
     return (
       <View style={styles.container}>
-         
-        <Text style={styles.instructions}>
-          Double tap R  on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <View style={styles.divider} />
+        <ScrollView style={styles.content}>
+          <View style={{width: width, height: 20}}/>
+          <ListItem icon={require('../images/ic_friends_circle.png')} text={"朋友圈"} />
+          <View style={{width: width, height: 20}}/>
+          <ListItem icon={require('../images/ic_scan.png')} text={"扫一扫"} />
+          <ListItemDivider/>
+          <ListItem icon={require('../images/ic_shake.png')} text={"摇一摇"} />
+          <View style={{width: width, height: 20}}/>
+          <ListItem icon={require('../images/ic_nearby.png')} text={"附近的人"}/>
+          <ListItemDivider/>
+          <ListItem icon={require('../images/ic_bottle.png')} text={"漂流瓶"}/>
+          <View style={{width: width, height: 20}}/>
+          <ListItem icon={require('../images/ic_shopping.png')} text={"购物"} />
+          <ListItemDivider/>
+          <ListItem icon={require('../images/ic_game.png')} text={"游戏"}/>
+          <View style={{width: width, height: 20}}/>
+          <ListItem icon={require('../images/ic_program.png')} text={"小程序"}/>
+        </ScrollView>
+        <View style={styles.divider} />
       </View>
     );
   }
@@ -26,18 +46,23 @@ export default class thre extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    alignItems: 'center'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  divider: {
+    width: width,
+    height: 1 / PixelRatio.get(),
+    backgroundColor: '#D3D3D3'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  content: {
+    flex: 1,
+    width: width,
+    flexDirection: 'column',
+    backgroundColor: Global.pageBackgroundColor
+  },
+  tabBarIcon: {
+    width: 24,
+    height: 24,
   },
 });

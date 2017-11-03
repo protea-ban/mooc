@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import { Icon } from 'native-base';
 import STRING from './const_string_zh_CN';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 
 //pages
 import TabMessage from './MessageStackNavigator';
@@ -71,52 +71,64 @@ const MOOCTabNavigator = TabNavigator({
       screen: TabMessage,
       navigationOptions: {
         tabBarLabel: STRING.message_page_name,
-        tabBarIcon: ({ tintColor }) => (
-            // <Icon name='chatbubbles' />
-            <Image
-              source={require('../images/ic_weixin_normal.png')}
-              style={{width: 40,height: 40}}
-            />
-        ),
+        tabBarIcon: ({focused, tintColor}) => {
+          if (focused) {
+            return (
+              <Image style={styles.tabBarIcon} source={require('../images/ic_weixin_selected.png')}/>
+            );
+          }
+          return (
+            <Image style={styles.tabBarIcon} source={require('../images/ic_weixin_normal.png')}/>
+          );
+        },
       }
     },
     Class: {
       screen: TabClass,
       navigationOptions: {
         tabBarLabel: STRING.class_page_name,
-        tabBarIcon: ({ tintColor }) => (
-            // <Icon name='person' />
-            <Image
-              source={require('../images/ic_contacts_normal.png')}
-              style={{width: 40,height: 40}}
-            />
-        ),
+        tabBarIcon: ({focused, tintColor}) => {
+          if (focused) {
+            return (
+              <Image style={styles.tabBarIcon} source={require('../images/ic_contacts_selected.png')}/>
+            );
+          }
+          return (
+            <Image style={styles.tabBarIcon} source={require('../images/ic_contacts_normal.png')}/>
+          );
+        },
       }
     },
     Discovery: {
       screen: Discovery,
       navigationOptions: {
         tabBarLabel: STRING.discovery_page_name,
-        tabBarIcon: ({ tintColor }) => (
-            // <Icon name='bookmark' />
-            <Image
-              source={require('../images/ic_find_normal.png')}
-              style={{width: 40,height: 40}}
-            />
-        ),
+        tabBarIcon: ({focused, tintColor}) => {
+          if (focused) {
+            return (
+              <Image style={styles.tabBarIcon} source={require('../images/ic_find_selected.png')}/>
+            );
+          }
+          return (
+            <Image style={styles.tabBarIcon} source={require('../images/ic_find_normal.png')}/>
+          );
+        },
       }
     },
     Me: {
       screen: Me,
       navigationOptions: {
         tabBarLabel: STRING.me_page_name,
-        tabBarIcon: ({ tintColor }) => (
-            // <Icon name='contact' />
-            <Image
-              source={require('../images/ic_me_normal.png')}
-              style={{width: 40,height: 40}}
-            />
-        ),
+        tabBarIcon: ({focused, tintColor}) => {
+          if (focused) {
+            return (
+              <Image style={styles.tabBarIcon} source={require('../images/ic_me_selected.png')}/>
+            );
+          }
+          return (
+            <Image style={styles.tabBarIcon} source={require('../images/ic_me_normal.png')}/>
+          );
+        },
       }
     },
 }, {
@@ -128,5 +140,12 @@ const MOOCTabNavigator = TabNavigator({
         //设置默认界面
         initialRouteName: 'Message',
     });
+
+const styles = StyleSheet.create({
+  tabBarIcon: {
+    width: 24,
+    height: 24,
+  },
+});
 
 export default MOOCTabNavigator;

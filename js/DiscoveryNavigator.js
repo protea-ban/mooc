@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation';
 import STRING from './const_string_zh_CN';
-import Two from './two';
+import Three from './three';
 
 
 const CourseMainOptions = {
@@ -14,7 +14,7 @@ const CourseMainOptions = {
 }
 
 const MOOCdisStackNavigator = StackNavigator({
-    CourseTab: { screen: Two, navigationOptions: CourseMainOptions },
+    CourseTab: { screen: Three, navigationOptions: CourseMainOptions },
 }, {
         //headerMode: 'none'
     });
